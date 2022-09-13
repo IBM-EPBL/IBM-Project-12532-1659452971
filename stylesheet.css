@@ -1,0 +1,154 @@
+    body{
+        margin: 0px;
+        background-color: rgb(210, 201, 201);
+    }
+    #content{
+        display: block;
+    }
+    #content1{
+        margin: 60px;
+        color: rgb(74, 69, 69);
+    }
+    ul,#content2{
+        list-style-type: none;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: x-large;
+
+    }
+    li{
+        display: inline;
+        padding: 10px;
+    }
+    #nm{
+        float: left;
+    }
+    #sm-logo{
+        float: right;
+    }
+    i{
+        color: rgb(74, 69, 69);
+    }
+    #content2{
+        margin-right: 60px;
+        margin-left: 60px;
+        margin-top: 60px;
+        padding: 45px;
+        padding-bottom: 0px;
+        background-color: blue;
+        color:aliceblue;
+        font-size: x-large;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        display: flex;
+    }
+  
+    #content3{
+        margin-right: 60px;
+        margin-left: 60px;
+        padding: 10px;
+        background-color: white;
+        height: 100%;
+        font-size: x-large;
+    }
+    #btn1{
+        background-color: whitesmoke;
+        color: rgb(63, 53, 53);
+        border-radius: 25px;
+        border-style: none;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    #btn2{
+        background-color: rgb(46, 212, 46);
+        color:aliceblue;
+        border-radius: 25px;
+        border-style: none;
+        padding: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    img{
+        float: left;
+        width: 100%;
+        height: 100%;
+    }
+    #cnt21{
+        padding: 5px;
+        background-color: aliceblue;
+        width: 12%;
+        
+    }
+    #cnt22{
+        padding-left: 120px;
+    }
+    #cnt31{
+        float:left;
+        width: 55%;
+        padding: 2%;
+        font-family: Sitka Subheading Semibold;
+        color: rgb(72, 72, 72);
+    }
+    #cnt32{
+        float: left;
+        width: 6%;
+        padding: 2%;
+        font-family: Sitka Subheading Semibold;
+        color: rgb(72, 72, 72);
+    }
+    #cnt33{
+        float: left;
+        width: 27%;
+        padding: 2%;
+        font-family: Sitka Subheading Semibold;
+        color: rgb(72, 72, 72);
+    }
+   #cnt34{
+       margin: 30px;
+   }
+    .progress{
+        float: left;
+        width: 50%;
+    } .progress1{
+        float: left;
+        width: 50%;
+    }
+    h3{
+        color: black;
+    }
+    
+    .progress-value {
+        border-radius: 5px;
+        background: rgb(4, 0, 255);
+        height: 30px;
+        width: 0;
+        border-color: black;
+    }
+    .progress-value1 {
+        border-radius: 5px;
+        background: rgb(0, 255, 98);
+        height: 30px;
+        width: 0;
+    }
+    #progress-value1{
+        animation: load1 3s normal forwards;
+    }
+    #progress-value2{
+        animation: load2 3s normal forwards;
+    }
+    #progress-value3{
+        animation: load3 3s normal forwards;
+    }
+    
+    @keyframes load1 {
+        0% { width: 0; }
+        100% { width: 90%; }
+    }
+    @keyframes load2 {
+        0% { width: 0; }
+        100% { width: 70%; }
+    }
+    @keyframes load3 {
+        0% { width: 0; }
+        100% { width: 60%; }
+    }
