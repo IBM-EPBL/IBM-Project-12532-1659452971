@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Display Images
+    </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "b4821659-7a52-436d-85db-b0c7b12be578", // The ID of this integration.
+    region: "au-syd", // The region your integration is hosted in.
+    serviceInstanceID: "c085bebe-3d31-42e0-aeb6-9ea6cf8d09c0", // The ID of your service instance.
+    onLoad: function(instance) { instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
+</head>
+<body>
+    <h2>Images From Cloud Object Storage</h2>
+    <br>
+    <div class="container">
+        <div class="row">
+          <div class="col">
+            <img src="https://plasma03.s3.jp-tok.cloud-object-storage.appdomain.cloud/3635104.jpg" alt = "Image1" class="img-fluid" style="width: 300px;height: 250px;"></img>
+          </div>
+          <div class="col">
+            <img src="https://plasma03.s3.jp-tok.cloud-object-storage.appdomain.cloud/a496c2b6bc5d7cfe0e0674f6598c38ad.jpg" alt = "Image2" class="img-fluid" alt = "sangeeth" style="width: 250px;height: 250px;"></img>
+          </div>
+          <div class="col">
+            <img src="https://plasma03.s3.jp-tok.cloud-object-storage.appdomain.cloud/bafe185ce3e152545ed041ed34cab81c.jpg" alt = "Image3" class="img-fluid" alt = "tharani" style="width: 250px;height: 250px;"></img>
+          </div>
+          <div class="col">
+            <img src="https://plasma03.s3.jp-tok.cloud-object-storage.appdomain.cloud/pexels-photo-414612.jpeg" class="img-fluid" alt = "Image4"  style="width: 250px;height: 250px;"></img>
+          </div>
+          <div class="col">
+            <img src="https://plasma03.s3.jp-tok.cloud-object-storage.appdomain.cloud/pexels-photo-719396.jpeg" class="img-fluid" alt = "Image5"  style="width: 250px;height: 250px;"></img>  
+          </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
