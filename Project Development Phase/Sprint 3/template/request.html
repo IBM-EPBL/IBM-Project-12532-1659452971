@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+{% block title %}Signin{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+<body>
+    {% block content %}
+    {{ super() }}
+
+    <div class="row ">
+        <div class="col-md-3 mt-4"></div>
+        <div class="col-md-4 mt-4">
+            <div class="card">
+                <div class="card-body ">
+
+                    <!-- Form submit to request -->
+                    <form method="post">
+                        <!-- Blood input -->
+                        <div class="form-outline mt-2">
+                            
+                            <select name="blood" id="blood" name="blood" class="form-control">
+                                <option value="A Positive" selected>A Positive</option>
+                                <option value="B Positive">B Positive</option>
+                                <option value="AB Positive">AB Positive</option>
+                                <option value="O Negative">O Negative</option>
+                                <option value="A Negative">A Negative</option>
+                                <option value="B Negative">B Negative</option>
+                                <option value="AB Negative">AB Negative</option>
+                                <option value="O Positive">O Positive</option>
+                            </select>
+                            <label class="form-label" for="blood">Choose your blood group</label>
+                        </div>
+                        <div class="form-outline mt-2">
+                            <textarea class="form-control" id="address" name="addess" rows="3" placeholder="Enter your address" required ></textarea>
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="form-outline mt-2">
+                            <button id="request" class="btn btn-primary btn-block mb-2">Submit request</button>
+                        </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4 mt-4">
+            {% if messages %}
+            <div class="alert alert-info alert-dismissible fade show " role="alert">
+              <span>{{ messages.message }}</span>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            {% endif %}
+    </div>
+    {% endblock %}
+</body>
+{% block js%}
+{{ super() }}
+<script>
+    $(document).ready(function () {
+      $('#request').on('click', function (event) {
+  
+        var postData = {
+          'blood': $('#blood').val(),
+          'address': $('#address').val(),
+        };
+        alert(JSON.stringify(postData));
+        $.ajax({
+          type: "POST",
+          url: "/requested",
+          dataType: "json",
+          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(postData),
+        })
+          .done(function (data) {
+          });
+        event.preventDefault();
+      });
+    });
+  </script>
+{% endblock %}

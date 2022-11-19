@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block title %}Statistics{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+<body>
+    {% block content %}
+    {{ super() }}
+
+    <div class="row ml-2 mt-2">
+        {% if data %}
+        {% for d in data %}
+        <div class="col-md-2 mt-2">
+            <div class="card">
+                <div class="card-body">
+                    <center>
+                        <h5 class="card-title">{{ d.group }}</h5>
+                        <p class="card-text"><span class="badge badge-success">{{ d.count }}</span></p>
+                        <a href="/requested" class="btn btn-primary">Make Request</a>
+                    </center>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    {% endblock %}
+</body>
+{% block js%}
+{{ super() }}
+{% endblock %}
