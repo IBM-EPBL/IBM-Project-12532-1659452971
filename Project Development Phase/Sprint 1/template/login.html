@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block title %}Signin{% endblock %}
+
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+<body>
+  {% block content %}
+  {{ super() }}
+
+  <div class="row " style="background-color:#e7e2fe;height:670px;">
+    <div class="col-md-3 mt-4"></div>
+    <div class="col-md-4 mt-4" style="margin-left:150px;bottom:-150px;">
+      <div class="card">
+        <div class="card-body ">
+
+          <!-- Form submit to signin -->
+          <form method="post">
+            <!-- Username input -->
+            <div class="form-outline mt-4">
+              <input type="text" id="username" placeholder="username@example.com" name="username" class="form-control" required />
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mt-4">
+              <input type="password" id="password" placeholder="Password" name="password" class="form-control" required />
+            </div>
+
+            <!-- Submit button -->
+            <div class="form-outline mt-4">
+              <button id="signin" class="btn btn-primary btn-block mb-4">Sign in</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3 mt-4">
+      {% if messages %}
+      <div class="alert alert-info alert-dismissible fade show " role="alert">
+        <span>{{ messages.message }}</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="col-md-2 mt-4"></div>
+      {% endif %}
+  </div>
+    {% endblock %}
+</body>
+{% block js%}
+{{ super() }}
+<script>
+  $(document).ready(function () {
+    $('#signin').on('click', function (event) {
+
+      var postData = {
+        'username': $('#username').val(),
+        'passw': $('#password').val(),
+      };
+      $.ajax({
+        type: "POST",
+        url: "/signin",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(postData),
+      })
+        .done(function (data) {
+        });
+      event.preventDefault();
+    });
+  });
+</script>
+
+{% endblock %}

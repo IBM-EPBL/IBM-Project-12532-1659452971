@@ -1,0 +1,24 @@
+.btn-primary
+{
+    border-color:rgb(111,35,211);
+    color:white;
+    background-color:rgb(111,35,211);
+}
+.btn-primary .active, btn-primary:active
+{
+    border-color:rgb(111,35,211);
+    color:white;
+    background-color:rgb(111,35,211);
+}
+btn-primary:hover
+{
+    border-color:rgb(111,35,211);
+    color:white;
+    background-color:rgb(111,35,211);
+}
+btn-primary .active:hover
+{
+    border-color:rgb(111,35,211);
+    color:white;
+    background-color:rgb(111,35,211);
+}
