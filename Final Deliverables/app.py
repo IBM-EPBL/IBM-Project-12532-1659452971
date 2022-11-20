@@ -46,11 +46,11 @@ def requested():
 		stmt = ibm_db.exec_immediate(conn, sql)
 		dictionary = ibm_db.fetch_both(stmt)
 		while dictionary != False:
-			phone = dictionary[0]
+			email = dictionary[0]
 
                         sg = sendgrid.SendGridAPIClient(api_key= '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' )
 	                from_email = Email("19cs052@syedengg.co.in")
-	                to_email = To(sql)
+	                to_email = To(email)
 	                subject = "Request for plasma"
 	                content = Content("text/plain", msg)
 	                mail = Mail(from_email, to_email, subject, content)
