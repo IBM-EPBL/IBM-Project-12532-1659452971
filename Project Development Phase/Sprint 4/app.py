@@ -45,7 +45,7 @@ def requested():
 		dictionary = ibm_db.fetch_both(stmt)
 		while dictionary != False:
 			email = dictionary[0]
-		        sg = sendgrid.SendGridAPIClient(api_key= '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' )
+		        sg = sendgrid.SendGridAPIClient(api_key= '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' )
 
 	                from_email = Email("19cs052@syedengg.co.in")
 	                to_email = To(email)
