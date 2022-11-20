@@ -2,7 +2,10 @@ from flask import Flask, redirect, url_for, request, render_template
 import urllib.parse
 import ibm_db
 import requests
+import sendgrid
 
+import os
+from sendgrid.helpers.mail import *
 app = Flask(__name__)
 
 conn = ibm_db.connect("DATABASE=bludb;HOSTNAME=b1bc1829-6f45-4cd4-bef4-10cf081900bf.c1ogj3sd0tgtu0lqde00.databases.appdomain.cloud;PORT=32304;SECURITY=SSL;SSLServerCertificate=DigiCertGlobalRootCA .crt;UID=cxv46470;PWD=gjV37V3l8fdjQjbQ",'','')
@@ -37,15 +40,22 @@ def requested():
 		blood = clean_data[0]
 		address = clean_data[1]
 		msg = "Need Plasma of your blood group for: "+address
-		sql = "SELECT phone FROM register WHERE bloodgroup='"+blood+"'"
+		sql = "SELECT email FROM register WHERE bloodgroup='"+blood+"'"
 		stmt = ibm_db.exec_immediate(conn, sql)
 		dictionary = ibm_db.fetch_both(stmt)
 		while dictionary != False:
-			phone = dictionary[0]
-			#url="https://www.fast2sms.com/dev/bulk?authorization=ih4ZCvpdVmLHzqo9lTafI8gGPxDXkc620teWFQjUSrY1wuyOnbC5GuM9dg2XtRlEefQhiHva08n6KJwb&sender_id=FSTSMS&message="+msg+"&language=english&route=v3&numbers="+str(phone)
-			url="https://www.fast2sms.com/dev/bulk?authorization=xCXuwWTzyjOD2ARd1EngbH3a7tKIq5PklJ8YSf0Lh4FQZecs9iNI1dSvuqprxFwCKYJXA5amQkBE36Rl&sender_id=FSTSMS&message="+msg+"&language=english&route=p&numbers="+str(phone)
-			response = requests.request("GET", url)
-			print(response.text)
+			email = dictionary[0]
+		        sg = sendgrid.SendGridAPIClient(api_key= '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' )
+
+	                from_email = Email("19cs052@syedengg.co.in")
+	                to_email = To(email)
+	                subject = "Request for plasma"
+	                content = Content("text/plain", msg)
+	                mail = Mail(from_email, to_email, subject, content)
+	                response = sg.client.mail.send.post(request_body=mail.get())
+	                print(response.status_code)
+	                print(response.body)
+	                print(response.headers)
 			dictionary = ibm_db.fetch_both(stmt)
 		messages = {'message': 'Your request is sent to the concerned people.'}
 		return render_template('request.html', messages=messages)
